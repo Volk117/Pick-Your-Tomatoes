@@ -1,0 +1,17 @@
+body {
+background-image: radial-gradient(teal, white, teal);
+}
+.jumbotron {
+    color: teal;
+    background-color: white;
+    align-items: center;
+    background-image: radial-gradient(teal,white, teal);
+}
+.display-4 {
+    font-family: American Typewriter, serif;
+    align-items: center;
+    text-shadow: 2px 2px black;
+}
+#search {
+    color: teal;
+}
