@@ -36,6 +36,7 @@ function getInfo(response) {
         //Evan: gets movie name from the object
         var movie = response.Similar.Results[i].Name;
 
+        var trailer = response.Similar.Results[i].yUrl;
         //Evan: creates URL for OMDB search
         var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
         //Evan: api call gets information for each movie
@@ -51,16 +52,32 @@ function getInfo(response) {
                 //Evan: this is what will get executed if it works
                 console.log(response);
                 //Evan: calls createElemts to display the html for the movie
-                createElements(response);
+                createElements(response, trailer);
             }
         })
 
     }
 }
 //Evan: creates the html for each movie
-function createElements(movieInfo) {
+function createElements(movieInfo, trailer) {
+    //Evan: create variables for information to display
+    var title = movieInfo.Title;
+    var poster = movieInfo.Poster;
+    var description = movieInfo.Plot;
+    var rating = movieInfo.imdbRating;
 
+    var template = $("#original").clone();
 
+    $("#movie-section").append(template);
+    template.show();
+
+    //Evan: creating elements to display with movie information
+
+    // var movieDivision = $("<div>");
+    // $("movie-section").append(movieDivision);
+    // movieDivision.addClass("movie-division");
+
+    // console.log(movieDivision);
 }
-
+$(".movie-division").hide();
 $("#search").on("click", getSuggestions);
