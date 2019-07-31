@@ -1,17 +1,54 @@
 body {
-background-image: radial-gradient(teal, white, teal);
+    /* background-image: radial-gradient(teal, white, teal); */
 }
+
 .jumbotron {
     color: teal;
     background-color: white;
     align-items: center;
-    background-image: radial-gradient(teal,white, teal);
+    margin: 0;
+    padding: 0;
+    /* background-image: radial-gradient(teal,white, teal); */
 }
+
 .display-4 {
     font-family: American Typewriter, serif;
     align-items: center;
     text-shadow: 2px 2px black;
 }
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
 #search {
     color: teal;
+}
+
+#movie-section {
+    margin: auto;
+}
+
+.movie-division {
+    background-color: rgb(179, 179, 179);
+    padding: .5rem;
+}
+
+.rotten-rating {
+    /* margin: 1rem 0 1rem 0; */
+    font-size: 2rem;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+}
+
+.movie-info {
+    height: 250px;
+}
+
+.trailer {
+    height: 100%;
+    width: 100%;
 }
