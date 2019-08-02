@@ -1,14 +1,52 @@
+body {
+    /* background-image: url("../dark_mosaic.png"); */
+    background-color: #001E3B;
+}
+
+h1 {
+    display: inline;
+}
+
+h2 {
+    font-size: .75rem;
+    color: rgb(179, 179, 179);
+    margin-top: .5rem;
+}
+
+span {
+    color: rgb(179, 179, 179);
+}
+
+.navbar {
+    background-color: #122a41;
+}
+
+.btn {
+    background-color: aliceblue;
+}
+
+.form-control {
+    width: 500px;
+}
+
+.navbar-brand {
+    color: white;
+}
+
 .jumbotron {
-    color: teal;
-    background-color: white;
+    color: rgb(180, 180, 180);
+    background-color: #285986;
     align-items: center;
     margin: 0;
-    padding: 0;
+    padding: 2rem;
+    font-family: 'Comfortaa', cursive;
     /* background-image: radial-gradient(teal,white, teal); */
 }
 
+#topSection {}
+
 .display-4 {
-    font-family: American Typewriter, serif;
+    font-family: 'Comfortaa', cursive;
     align-items: center;
     text-shadow: 2px 2px black;
 }
@@ -18,7 +56,11 @@
 }
 
 #search {
-    color: teal;
+    /* color: teal; */
+}
+
+#search:hover {
+    background-color: #bddfff;
 }
 
 #movie-section {
@@ -26,9 +68,10 @@
 }
 
 .movie-division {
-    background-color: rgb(179, 179, 179);
+    background-color: #285986;
     padding: .5rem;
     margin-bottom: .25rem;
+    color: white;
 }
 
 .rotten-rating {

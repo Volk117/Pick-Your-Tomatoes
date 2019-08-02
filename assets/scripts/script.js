@@ -3,6 +3,8 @@ var trailerArray = [];
 
 //Evan: this function takes user input and gets suggestions from tastedive api
 function getSuggestions(searchTerm) {
+    $(".jumbotron").hide();
+    console.log("test");
     //reset everything
     reset();
     //Evan: this holds the number of movies for it to suggest
@@ -10,7 +12,7 @@ function getSuggestions(searchTerm) {
     //Evan: this grabs the searchterm from the user input
     searchTerm = $(".form-control").val();
     //Evan: the API URL with searchterm and limit
-    console.log(searchTerm);
+    // console.log(searchTerm);
     var queryURL = "https://tastedive.com/api/similar?q=" + searchTerm + "&type=movies&info=1&limit=" + movieLimit + "&k=341271-NatalieU-75CWR9WB";
 
     //Evan: taken from one of the API activities
@@ -27,7 +29,7 @@ function getSuggestions(searchTerm) {
             //Evan: this runs if call is succesful
         } else {
             console.log(response);
-            console.log(response.Similar.Results[0].Name);
+            // console.log(response.Similar.Results[0].Name);
             //Evan: calls the omdb api to get more information on the suggestion
             getInfo(response);
         }
@@ -60,7 +62,7 @@ function getInfo(response) {
                 //Evan: calls createElemts to display the html for the movie
 
                 createElements(response);
-
+                console.log(response);
             }
         })
 
@@ -70,12 +72,15 @@ function getInfo(response) {
 //Evan: creates the html for each movie
 function createElements(movieInfo) {
 
-
     //Evan: create variables for information to display
     var title = movieInfo.Title;
     var poster = movieInfo.Poster;
     var description = movieInfo.Plot;
     var rating = movieInfo.imdbRating;
+    var year = movieInfo.Year;
+    var language = movieInfo.Language;
+    var rated = movieInfo.Rated;
+    var runTime = movieInfo.Runtime;
     var trailer;
 
     //loop to match trailer with info
@@ -83,7 +88,7 @@ function createElements(movieInfo) {
     for (var i = 0; i < trailerArray.length; i++) {
         if (trailerArray[i].Name.toLowerCase() === title.toLowerCase()) {
             trailer = trailerArray[i].yUrl;
-            console.log(trailer, trailerArray[i].yUrl)
+            // console.log(trailer, trailerArray[i].yUrl)
         }
     }
 
@@ -97,7 +102,7 @@ function createElements(movieInfo) {
     rottenRating.addClass("rotten-rating");
     movieDivision.append(rottenRating);
 
-    //creating the section that holds eeverything else
+    //creating the section that holds everything else
     var movieInfo = $("<div>").addClass("movie-info row");
     movieDivision.append(movieInfo);
 
@@ -110,8 +115,11 @@ function createElements(movieInfo) {
     //creating the title and description
     var descriptionTitle = $("<div>").addClass("col-md-6 description title");
     var $title = $("<h1>").text(title);
+    var $year = $("<span>").text(" (" + year + ")");
+    var $info = $("<h2>").text(runTime + " -- " + language + " -- " + rated);
+
     var $description = $("<p>").text(description);
-    descriptionTitle.append($title, $description);
+    descriptionTitle.append($title, $year, $info, $description);
     movieInfo.append(descriptionTitle);
 
     //creating the trailer
