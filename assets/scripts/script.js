@@ -25,7 +25,7 @@ function getSuggestions(searchTerm) {
         url: queryURL,
         dataType: "jsonp",
         method: "GET"
-    }).done(function(response) {
+    }).done(function (response) {
         //Evan: error handler
         if (response.Response === "False") {
             alert(response.Error);
@@ -58,7 +58,7 @@ function getInfo(response) {
             url: queryURL,
             dataType: "jsonp",
             method: "GET"
-        }).done(function(response) {
+        }).done(function (response) {
             if (response.Response === "False") {
                 // alert(response.Error);
                 //increases count so it still runs if one or more don't return
@@ -98,19 +98,27 @@ function createElements(sortedArray) {
         var title = sortedArray[j].Title;
         var poster = sortedArray[j].Poster;
         var description = sortedArray[j].Plot;
-        var rating = sortedArray[j].imdbRating;
+        var Imdb = sortedArray[j].imdbRating;
         var year = sortedArray[j].Year;
         var language = sortedArray[j].Language;
         var rated = sortedArray[j].Rated;
         var runTime = sortedArray[j].Runtime;
         var trailer;
+        var rottenTomatoes;
 
         //loop to match trailer with info
         //! loop not consistently working. maybe something with special character?
+
         for (var i = 0; i < trailerArray.length; i++) {
             if (trailerArray[i].Name.toLowerCase() === title.toLowerCase()) {
                 trailer = trailerArray[i].yUrl;
                 // console.log(trailer, trailerArray[i].yUrl)
+            }
+        }
+        var ratings = sortedArray[j].Ratings;
+        for (var g = 0; g < ratings.length; g++) {
+            if (ratings[g].Source === "Rotten Tomatoes") {
+                rottenTomatoes = ratings[g].Value;
             }
         }
 
@@ -120,7 +128,7 @@ function createElements(sortedArray) {
         $("#movie-section").append(movieDivision);
 
         //placing the rating
-        var rottenRating = $("<div>").html("<img src='assets/tomato.png' class='icon'>" + rating);
+        var rottenRating = $("<div>").html("<img src='assets/images/tomato.png' class='icon'>    " + rottenTomatoes + "  <img src='assets/images/imdb.png' class='icon'>   " + Imdb);
         rottenRating.addClass("rotten-rating");
         movieDivision.append(rottenRating);
 
@@ -175,3 +183,14 @@ function compareHighest(a, b) {
 }
 
 $("#search").on("click", getSuggestions);
+
+// Rugiya trigger click event on pressing enter key
+$(".form-control").keypress(function (e) {
+    var key = e.which;
+    if (key == 13) // the enter key code
+    {
+
+        console.log("test")
+        getSuggestions();
+    }
+});
