@@ -40,7 +40,6 @@ span {
 
 .navbar-brand {
     color: white;
-
 }
 
 .jumbotron {
@@ -51,6 +50,7 @@ span {
     margin: 0;
     padding: 2rem;
     text-align: center;
+    margin-top: 1.5rem;
     /* background-image: radial-gradient(teal,white, teal); */
 }
 
@@ -59,7 +59,7 @@ span {
 .display-4 {
     font-family: 'Alfa Slab One', cursive;
     align-items: center;
-    text-shadow: 2px 2px white;
+    /* text-shadow: 2px 2px white; */
     color: rgb(189, 6, 6)
 }
 
