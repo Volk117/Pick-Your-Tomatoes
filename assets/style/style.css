@@ -1,5 +1,5 @@
 body {
-    /* background-image: url("../dark_mosaic.png"); */
+    /* background-image: url("../images/_23-2147909368.jpg"); */
     background-color: #001E3B;
 }
 
@@ -30,21 +30,26 @@ span {
     background-color: aliceblue;
 }
 
+.d-block {
+    margin-top: 1em;
+}
+
 .form-control {
     width: 500px;
 }
 
 .navbar-brand {
     color: white;
+
 }
 
 .jumbotron {
+    font-family: 'Alfa Slab One', cursive;
     color: rgb(180, 180, 180);
     background-color: #001E3B;
     align-items: center;
     margin: 0;
     padding: 2rem;
-    font-family: 'Comfortaa', cursive;
     text-align: center;
     /* background-image: radial-gradient(teal,white, teal); */
 }
@@ -52,9 +57,10 @@ span {
 #topSection {}
 
 .display-4 {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Alfa Slab One', cursive;
     align-items: center;
-    text-shadow: 2px 2px black;
+    text-shadow: 2px 2px white;
+    color: rgb(189, 6, 6)
 }
 
 .input-group {
@@ -62,7 +68,8 @@ span {
 }
 
 #search {
-    /* color: teal; */
+    background-color: lightgrey;
+    color: black;
 }
 
 #search:hover {
