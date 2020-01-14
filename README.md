@@ -5,11 +5,11 @@ It's a web page that helps the users to pick the movie to watch by typing their 
 ## Views 
 Home page:
 
-![alt text](/images/imagest.png)
+![alt text](assets/images/imagest.png)
 
 Search page:
 
-![alt text](/images/imagend.png)
+![alt text](assets/images/imagend.png)
 
 
 ## TECHNOLOGIES USED
